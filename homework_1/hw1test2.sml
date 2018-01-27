@@ -58,8 +58,8 @@ val test_5_3 = dates_in_months([], [3]) = []
 val test_5_4 = dates_in_months([], []) = [] *)
 
 (* ============== *)
-(* 
-val input = ["longstring", "abc", "super"]
+
+(* val input = ["longstring", "abc", "super"]
 
 val test_6_1 = get_nth(input, 3) = "super" *)
 
@@ -87,9 +87,40 @@ val test_9_4 = what_month(330) = 11 *)
 (* val test_10_1 = month_range(58, 60) = [2, 2, 3]
 val test_10_2 = month_range(20, 15) = [] *)
 
-val d1 = (2,3,4)
+(* val d1 = (2,3,4)
 val d2 = (2,2,5)
 val d3 = (1,6,21)
 
 val test_11_1 = oldest([d1, d2, d3]) = SOME d3
-val test_11_2 = oldest([]) = NONE
+val test_11_2 = oldest([]) = NONE *)
+
+(* ============== *)
+
+(* val d1 = (1,2,3)
+val d2 = (1,3,4)
+val d3 = (1,2,3)
+val d4 = (1,2,21)
+val d5 = (1,6,21)
+
+val c_1_0 = remove_duplicates ([2, 2])
+
+val test_c_1_1 = number_in_months_challenge([d1, d2, d3, d4, d5], [2, 2]) = 3
+val test_c_1_2 = number_in_months_challenge([d1, d2, d3, d4], [9]) = 0
+val test_c_1_3 = number_in_months_challenge([], [1]) = 0
+val test_c_1_4 = number_in_months_challenge([d1, d2], []) = 0 *)
+
+(* ============== *)
+
+val d1 = (1980, 2, 31)  (* false *)
+val d2 = (1980, 2, 25)  (* true *)
+val d3 = (2020, 2, 29)  (* true -> leap year *)
+val d4 = (2021, 2, 29)  (* false *)
+val d5 = (0, 1, 15)     (* false *)    
+val d6 = (0, 3, 32)     (* false *)    
+
+val test_c_2_1 = reasonable_date(d1) = false
+val test_c_2_2 = reasonable_date(d2) = true
+val test_c_2_3 = reasonable_date(d3) = true
+val test_c_2_4 = reasonable_date(d4) = false
+val test_c_2_5 = reasonable_date(d5) = false
+val test_c_2_6 = reasonable_date(d6) = false
